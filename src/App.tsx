@@ -123,10 +123,10 @@ const HomeSection = () => (
             </h2>
             <div className="prose prose-lg max-w-none">
 			  <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-			  I am passionate about innovation and research in the field of Artificial Intelligence and working on an Agritech startup,
-			   <strong>Farmicon</strong> for smart farming using AI-based solutions. I'm pursuing my Ph.D. from the Department of Computer Science 
-			  and Engineering, Indian Institute of Technology Roorkee (IIT Roorkee) under the supervision of 
-			  <strong>Prof. Partha Pratim Roy</strong> (Associate Professor, CSE Dept, IITR). My research interests lie in Brain-Computer Interface, 
+			  I am passionate about innovation and research in the field of Artificial Intelligence and working on an Agritech startup, 
+			  Farmicon for smart farming using AI-based solutions. I'm pursuing my Ph.D. from the Department of Computer Science 
+			  and Engineering, Indian Institute of Technology Roorkee under the supervision of 
+			  Prof. Partha Pratim Roy (Associate Professor, CSE Dept, IIT Roorkee). My research interests lie in Brain-Computer Interface, 
 			  Cognitive State, EEG, Human-Machine Collaboration, etc.
 			  </p>
 			  <ul className="text-lg text-gray-600 mb-8 leading-relaxed list-disc pl-5">
