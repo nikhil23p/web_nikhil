@@ -122,12 +122,19 @@ const HomeSection = () => (
               About me
             </h2>
             <div className="prose prose-lg max-w-none">
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                I am passionate about innovation and research in the field of Artificial Intelligence and working on an
-                Agritech startup, Farmicon for smart farming using AI-based solutions. I'm pursuing my Ph.D. from the
-                Department of Computer Science and Engineering Indian Institute of Technology Roorkee (IIT Roorkee)
-                under the supervision of Prof Partha Pratim Roy (Associate Professor, CSE Dept, IITR).
-              </p>
+			  <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+			  I am passionate about innovation and research in the field of Artificial Intelligence and working on an Agritech startup,
+			   <strong>Farmicon</strong> for smart farming using AI-based solutions. I'm pursuing my Ph.D. from the Department of Computer Science 
+			  and Engineering, Indian Institute of Technology Roorkee (IIT Roorkee) under the supervision of 
+			  <strong>Prof. Partha Pratim Roy</strong> (Associate Professor, CSE Dept, IITR). My research interests lie in Brain-Computer Interface, 
+			  Cognitive State, EEG, Human-Machine Collaboration, etc.
+			  </p>
+			  <ul className="text-lg text-gray-600 mb-8 leading-relaxed list-disc pl-5">
+			  <li>Passionate about learning and building, Innovation, Research, Entrepreneurship Development, Business Strategies, and Startup Development Programs.</li>
+			  <li>Skilled in building innovation, entrepreneurship, and technology in multiple domains.</li>
+			  <li>Professional with more than five years of experience in strategy planning, managing, and executing programs/boot camps.</li>
+			  </ul>
+
             </div>
             <div className="grid md:grid-cols-3 gap-8 mt-12">
               {[
