@@ -102,7 +102,7 @@ const HomeSection = () => (
             <div className="relative w-64 h-64 rounded-full overflow-hidden shadow-xl transform hover:scale-105 transition-transform duration-300">
               <img
                 className="w-full h-full object-cover"
-                src="/nikhilprofileweb.jpg"
+                src="/images/profile.jpg"
                 alt="Nikhil Panwar"
               />
             </div>
