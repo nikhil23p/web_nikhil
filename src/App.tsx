@@ -57,7 +57,19 @@ const HomeSection = () => (
     <section id="home" className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-gray-100/25 bg-[size:20px_20px] [mask-image:radial-gradient(white,transparent_85%)]" />
       <div className="max-w-7xl mx-auto relative">
-        <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-8 items-center">
+          {/* Profile Photo for Mobile */}
+          <div className="lg:hidden w-full flex justify-center mb-8">
+            <div className="relative w-56 h-56 rounded-full overflow-hidden shadow-xl transform hover:scale-105 transition-transform duration-300">
+              <img
+                className="w-full h-full object-cover"
+                src="/images/profile.jpg"
+                alt="Nikhil Panwar"
+              />
+            </div>
+          </div>
+
+          {/* Text Content */}
           <div className="sm:text-center lg:text-left lg:col-span-6">
             <div className="space-y-6">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold">
@@ -84,14 +96,15 @@ const HomeSection = () => (
               </div>
             </div>
           </div>
-          <div className="mt-12 lg:mt-0 lg:col-span-6">
-            <div className="relative mx-auto w-full rounded-2xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
+
+          {/* Profile Photo for Desktop */}
+          <div className="hidden lg:flex lg:col-span-6 justify-center items-center">
+            <div className="relative w-64 h-64 rounded-full overflow-hidden shadow-xl transform hover:scale-105 transition-transform duration-300">
               <img
-                className="w-full"
-                src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                alt="Working on research"
+                className="w-full h-full object-cover"
+                src="/img/profile_iitr.avif"
+                alt="Nikhil Panwar"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             </div>
           </div>
         </div>
@@ -165,7 +178,7 @@ const HomeSection = () => (
               <div>
                 <h3 className="text-xl font-semibold mb-2">The PARIMAL Lab</h3>
                 <p className="text-gray-600 mb-4">Department of Computer Science and Engineering<br />IIT Roorkee</p>
-                <a href="#" className="inline-flex items-center text-blue-600 hover:text-blue-700">
+                <a href="http://parimal.iitr.ac.in/" className="inline-flex items-center text-blue-600 hover:text-blue-700">
                   Learn more <ExternalLink className="h-4 w-4 ml-1" />
                 </a>
               </div>
@@ -181,7 +194,7 @@ const HomeSection = () => (
               <div>
                 <h3 className="text-xl font-semibold mb-2">FARMICON INDIA</h3>
                 <p className="text-gray-600 mb-4">I-3, TIDES Business Incubator<br />IIT Roorkee</p>
-                <a href="#" className="inline-flex items-center text-blue-600 hover:text-blue-700">
+                <a href="https://farmicon.in/" className="inline-flex items-center text-blue-600 hover:text-blue-700">
                   Visit website <ExternalLink className="h-4 w-4 ml-1" />
                 </a>
               </div>
@@ -226,18 +239,18 @@ const HomeSection = () => (
           </p>
           <div className="inline-flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="mailto:contact@example.com"
+              href="https://calendar.app.google/zqHig5nRkV5u41Hi6"
               className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300"
             >
               <Mail className="h-5 w-5 mr-2" />
               Send Email
             </a>
             <a
-              href="#"
+              href="https://calendar.app.google/zqHig5nRkV5u41Hi6"
               className="inline-flex items-center justify-center px-8 py-4 border border-gray-300 text-base font-medium rounded-xl text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-300"
             >
               <ExternalLink className="h-5 w-5 mr-2" />
-              View Resume
+              Schedule Meeting
             </a>
           </div>
         </div>
@@ -318,19 +331,19 @@ const EducationSection = () => (
               key={index}
               className="bg-white rounded-xl p-6 hover:shadow-xl transition-all duration-300 border border-gray-100"
             >
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
                 <div>
                   <h4 className="text-xl font-semibold text-gray-900">{edu.degree}</h4>
                   <p className="text-blue-600">{edu.institution}</p>
                   <p className="text-gray-600">{edu.location}</p>
+                  <div className="mt-2 text-gray-600 whitespace-pre-line">
+                    {edu.details}
+                  </div>
                 </div>
-                <div className="text-right">
+                <div className="text-right flex-shrink-0">
                   <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-50">
                     <span className="text-sm font-medium text-blue-600">{edu.year}</span>
                   </div>
-                  {edu.grade && (
-                    <p className="text-gray-600 mt-2">Grade: {edu.grade}</p>
-                  )}
                 </div>
               </div>
             </div>
@@ -358,16 +371,7 @@ const EducationSection = () => (
                   <h4 className="text-lg font-semibold text-gray-900">{training.title}</h4>
                   <p className="text-gray-600">{training.organization}</p>
                   <p className="text-sm text-gray-500 mt-2">{training.date}</p>
-                  {training.credential && (
-                    <a
-                      href={training.credential}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-blue-600 hover:text-blue-700 mt-2"
-                    >
-                      View Credential <ExternalLink className="h-4 w-4 ml-1" />
-                    </a>
-                  )}
+                  <p className="text-sm text-blue-600 mt-1">{training.type}</p>
                 </div>
               </div>
             </div>
@@ -390,49 +394,56 @@ const researchAreas = [
 
 const researchPapers = [
   {
-    title: "Deep Learning-Based Approach for Cognitive State Assessment using EEG Data",
-    authors: "Nikhil Panwar, Partha Pratim Roy",
-    journal: "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
-    year: "2023",
-    doi: "#"
+    title: "Enhanced Cross-Task EEG Classification: Domain Adaptation with EEGNet",
+    authors: "V Pandey, N Panwar, A Kumbhar, PP Roy, M Iwamura",
+    journal: "International Conference on Pattern Recognition, 354-369",
+    year: "2024",
+    doi: "https://link.springer.com/chapter/10.1007/978-3-031-78195-7_24"
   },
   {
-    title: "Human-Machine Teaming: A Novel Framework for Collaborative Intelligence",
-    authors: "Nikhil Panwar, Partha Pratim Roy, et al.",
-    journal: "International Journal of Human-Computer Studies",
-    year: "2022",
-    doi: "#"
+    title: "EEG-CogNet: A deep learning framework for cognitive state assessment using EEG brain connectivity",
+    authors: "N Panwar, V Pandey, PP Roy",
+    journal: "Biomedical Signal Processing and Control 98, 106770",
+    year: "2024",
+    doi: "https://www.sciencedirect.com/science/article/pii/S1746809424008280"
   },
   {
-    title: "Smart Farming: AI-Driven Solutions for Agricultural Optimization",
-    authors: "Nikhil Panwar, et al.",
-    journal: "Computers and Electronics in Agriculture",
-    year: "2021",
-    doi: "#"
+    title: "An Automated Fume Control System for Automobile",
+    authors: "M Kaur, N Panwar",
+    journal: "International Journal of Computer Applications",
+    year: "2016",
+    doi: "https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=ca8fd59bb61e0c319394b395c1a8f3416825b7f6"
+  },
+  {
+    title: "Performance analysis of branch prediction unit for pipelined processors",
+    authors: "N Panwar, M Kaur, G Singh",
+    journal: "International Journal of Computer Applications",
+    year: "2015",
+    doi: "https://d1wqtxts1xzle7.cloudfront.net/99914449/download-libre.pdf?1678951922=&response-content-disposition=inline%3B+filename%3DSenior_Engineer.pdf&Expires=1738219462&Signature=Q0myiJhXCKNxAqUalaE6tVAljXwdml8R-pjd5D-Bu5ujCX1LaPSJw62UUFTebYoYMrimsXpodxuKMYbB8dTmoAwxfPcENlU3nEIvkZ2W0mmaKE5yQGEQTmypjDH-2JR4r-9iSpo4jsD~5goR68RPtzE4NnQnBI7yKLInqDtCQpJCjVPCKJj~R0vD7I9jLG9BpBf9BxaxdJCirUsPgTPp8LyXXhrYp2wrZDdSdZ9wcoNOB4jJzEvbiH2fDMhTnepTHZIoA~coP5bWaXJ3UpL0fPKmCmHHZXYuDZILgR2urFBC9tw1x-65g7wH2Gxg9-5I5uP~ek5EwlZjx8I~5KfQdw__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA"
   }
 ];
 
 const education = [
   {
-    degree: "Ph.D. in Computer Science and Engineering",
+    degree: "Doctor of Philosophy (Ph.D.)",
     institution: "Indian Institute of Technology Roorkee",
-    location: "Roorkee, Uttarakhand",
-    year: "2020 - Present",
-    grade: "Research Ongoing"
+    location: "Uttarakhand, India",
+    year: "July 2021 - Present",
+    details: "Department of Computer Science and Engineering\nThesis: Cognitive State Assessment to Improve Human-Machine Collaborations\nSupervisor: Prof. Partha Pratim Roy"
   },
   {
-    degree: "M.Tech in Computer Science",
-    institution: "Indian Institute of Technology",
-    location: "Roorkee, Uttarakhand",
-    year: "2018 - 2020",
-    grade: "9.2 CGPA"
+    degree: "Master of Technology (M.Tech.)",
+    institution: "CDAC Mohali",
+    location: "Punjab, India",
+    year: "August 2013 - July 2015",
+    details: "VLSI Design\nThesis: HDL Design Synthesis of Branch Predication Unit\nSupervisor: Dr. Manjit Kaur"
   },
   {
-    degree: "B.Tech in Computer Science",
-    institution: "Engineering College",
-    location: "Rajasthan",
-    year: "2014 - 2018",
-    grade: "8.8 CGPA"
+    degree: "Bachelor of Technology (B.Tech.)",
+    institution: "Rajasthan Technical University Kota, JNIT Jaipur",
+    location: "Rajasthan, India",
+    year: "July 2008 - May 2012",
+    details: "Electronics and Computer Engineering"
   }
 ];
 
@@ -449,27 +460,10 @@ const skills = [
 
 const trainings = [
   {
-    title: "Advanced Deep Learning Specialization",
-    organization: "DeepLearning.AI",
-    date: "2022",
-    credential: "#"
-  },
-  {
-    title: "Brain-Computer Interface Workshop",
-    organization: "IEEE Brain Initiative",
-    date: "2021",
-    credential: "#"
-  },
-  {
-    title: "Drone Technology and Applications",
-    organization: "DJI Enterprise",
-    date: "2021",
-    credential: "#"
-  },
-  {
-    title: "IoT for Smart Agriculture",
-    organization: "Microsoft Research",
-    date: "2020",
+    title: "Digital Design using VHDL",
+    organization: "CSIR-CEERI Pilani",
+    date: "May 2011 - July 2011",
+    type: "Summer Training",
     credential: "#"
   }
 ];
